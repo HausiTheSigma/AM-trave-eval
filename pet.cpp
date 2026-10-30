@@ -5,14 +5,14 @@
 
 
 
-struct pet
+struct Pet
 {
     std::string name;
     double value;
 };
 
 
-std::vector<pet> pets=
+std::vector<Pet> pets=
 {
     {"Bat Dragon", 864},
     {"Shadow Dragon", 785},
@@ -21,23 +21,23 @@ std::vector<pet> pets=
     {"Cow", 11}
 };
 
-pet findPet(std::string Pet){
-    for(const pet& current : pets){
-        if(current.name == Pet){
+Pet findPet(std::string pet){
+    for(const Pet& current : pets){
+        if(current.name == pet){
             return(current);
         }
     }
-    throw std::runtime_error("pet not found: " + Pet);
+    throw std::runtime_error("pet not found: " + pet);
 }
 
 int main(){
     double profit{0};
-    std::string Pet;
-    while(std::getline(std::cin, Pet) && Pet != "0"){
-        profit -= findPet(Pet).value;
+    std::string pet;
+    while(std::getline(std::cin, pet) && pet != "0"){
+        profit -= findPet(pet).value;
         }
-    while(std::getline(std::cin, Pet) && Pet != "0"){
-        profit += findPet(Pet).value;
+    while(std::getline(std::cin, pet) && pet != "0"){
+        profit += findPet(pet).value;
         }
     std::cout << "Total Profit "<< profit << std::endl;
     
