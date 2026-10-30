@@ -31,14 +31,16 @@ pet findPet(std::string Pet){
 }
 
 int main(){
-
-    std::string pet1;
-    std::string pet2;
-    std::getline(std::cin, pet1);
-    std::getline(std::cin, pet2);
-    pet peta = findPet(pet1);
-    pet petb = findPet(pet2);
-
-    std::cout << "Total Value: "<< peta.value + petb.value << std::endl;
+    double profit{0};
+    std::string Pet;
+    while(std::getline(std::cin, Pet) && Pet != "0"){
+        profit -= findPet(Pet).value;
+        }
+    while(std::getline(std::cin, Pet) && Pet != "0"){
+        profit += findPet(Pet).value;
+        }
+    std::cout << "Total Profit "<< profit << std::endl;
+    
+    std::cout << "Press Enter to close...";
     std::cin.get();
 }
